@@ -1,4 +1,4 @@
-import ThemeProvider from "@material-ui/core/styles/ThemeProvider"
+import ThemeProvider from "@material-ui/core/styles/MuiThemeProvider"
 import Header from "./UI/Header"
 import theme from "./UI/Theme"
 function App() {

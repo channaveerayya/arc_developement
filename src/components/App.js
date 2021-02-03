@@ -1,10 +1,10 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom"
-import ThemeProvider from "@material-ui/core/styles/MuiThemeProvider"
+import { ThemeProvider as MuiThemeProvider } from "@material-ui/core/styles"
 import Header from "./UI/Header"
 import theme from "./UI/Theme"
 function App() {
   return (
-    <ThemeProvider theme={theme}>
+    <MuiThemeProvider theme={theme}>
       <BrowserRouter>
         <Header />
         <Switch>
@@ -27,7 +27,7 @@ function App() {
           <Route exact path="/estimate" component={() => <h2>estimate</h2>} />
         </Switch>
       </BrowserRouter>
-    </ThemeProvider>
+    </MuiThemeProvider>
   )
 }
 

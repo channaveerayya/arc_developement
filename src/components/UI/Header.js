@@ -72,6 +72,9 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "50px",
     marginRight: "20px",
     height: "45px",
+    "&:hover": {
+      backgroundColor: theme.palette.secondary.light,
+    },
   },
   menu: {
     backgroundColor: theme.palette.common.blue,
@@ -142,7 +145,7 @@ const Header = () => {
   const menuOptions = [
     { name: "Services", link: "/services" },
     { name: "Custom Software Development", link: "/customsoftware" },
-    { name: "Mobile Software Development", link: "/mobileapps" },
+    { name: "iOS/Android App Development", link: "/mobileapps" },
     { name: "Website Software Development", link: "/websites" },
   ]
 
@@ -247,8 +250,15 @@ const Header = () => {
           )
         })}
       </Tabs>
-      <Button variant="contained" color="secondary" className={classes.button}>
-        Free Estimate
+      <Button
+        component={Link}
+        to="/estimate"
+        variant="contained"
+        color="secondary"
+        className={classes.button}
+        conClick={() => setValue(5)}
+      >
+        Free Estimate www
       </Button>
       <Menu
         id="simple-menu"

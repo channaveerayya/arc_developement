@@ -3,13 +3,14 @@ import { ThemeProvider as MuiThemeProvider } from "@material-ui/core/styles"
 import Header from "./UI/Header"
 import theme from "./UI/Theme"
 import Footer from "./UI/Footer"
+import LandingPage from "./LandingPage"
 function App() {
   return (
     <MuiThemeProvider theme={theme}>
       <BrowserRouter>
         <Header />
         <Switch>
-          <Route exact path="/" component={() => <h2>home</h2>} />
+          <Route exact path="/" component={LandingPage} />
           <Route exact path="/services" component={() => <h2>services</h2>} />
           Services
           <Route

@@ -8,6 +8,7 @@ import Services from './Services'
 import CustomSoftware from './CustomSoftware'
 import MobileApps from './MobileApps'
 import Websites from './Websites'
+import Revolution from './Revolution'
 function App() {
   return (
     <MuiThemeProvider theme={theme}>
@@ -20,11 +21,7 @@ function App() {
           <Route exact path='/customsoftware' component={CustomSoftware} />
           <Route exact path='/mobileapps' component={MobileApps} />
           <Route exact path='/websites' component={Websites} />
-          <Route
-            exact
-            path='/revolutions'
-            component={() => <h2>revolutions</h2>}
-          />
+          <Route exact path='/revolutions' component={Revolution} />
           <Route exact path='/aboutus' component={() => <h2>aboutus</h2>} />
           <Route exact path='/contact' component={() => <h2>contact</h2>} />
           <Route exact path='/estimate' component={() => <h2>estimate</h2>} />

@@ -1,12 +1,13 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles'
-import Header from './UI/Header'
-import theme from './UI/Theme'
-import Footer from './UI/Footer'
+import Header from './ui/Header'
+import theme from './ui/Theme'
+import Footer from './ui/Footer'
 import LandingPage from './LandingPage'
 import Services from './Services'
 import CustomSoftware from './CustomSoftware'
 import MobileApps from './MobileApps'
+import Websites from './Websites'
 function App() {
   return (
     <MuiThemeProvider theme={theme}>
@@ -18,7 +19,7 @@ function App() {
           Services
           <Route exact path='/customsoftware' component={CustomSoftware} />
           <Route exact path='/mobileapps' component={MobileApps} />
-          <Route exact path='/websites' component={() => <h2>websites</h2>} />
+          <Route exact path='/websites' component={Websites} />
           <Route
             exact
             path='/revolutions'

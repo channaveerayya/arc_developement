@@ -15,7 +15,7 @@ import swiss from '../assets/swissKnife.svg'
 import access from '../assets/extendAccess.svg'
 import engagement from '../assets/increaseEngagement.svg'
 import integrationAnimation from '../animations/integrationAnimation/data.json'
-import CallToAction from './UI/CallToAction'
+import CallToAction from './ui/CallToAction'
 const useStyles = makeStyles((theme) => ({
   heading: {
     maxWidth: '40em',

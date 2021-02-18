@@ -19,7 +19,7 @@ import documentsAnimation from '../animations/documentsAnimation/data'
 import scaleAnimation from '../animations/scaleAnimation/data'
 import automationAnimation from '../animations/automationAnimation/data.json'
 import uxAnimation from '../animations/uxAnimation/data'
-import CallToAction from './UI/CallToAction'
+import CallToAction from './ui/CallToAction'
 const useStyles = makeStyles((theme) => ({
   heading: {
     maxWidth: '40em',

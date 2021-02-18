@@ -6,6 +6,7 @@ import Footer from './UI/Footer'
 import LandingPage from './LandingPage'
 import Services from './Services'
 import CustomSoftware from './CustomSoftware'
+import MobileApps from './MobileApps'
 function App() {
   return (
     <MuiThemeProvider theme={theme}>
@@ -16,11 +17,7 @@ function App() {
           <Route exact path='/services' component={Services} />
           Services
           <Route exact path='/customsoftware' component={CustomSoftware} />
-          <Route
-            exact
-            path='/mobileapps'
-            component={() => <h2>mobileapps</h2>}
-          />
+          <Route exact path='/mobileapps' component={MobileApps} />
           <Route exact path='/websites' component={() => <h2>websites</h2>} />
           <Route
             exact

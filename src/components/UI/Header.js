@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react"
-import { Link } from "react-router-dom"
+import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import {
   AppBar,
   Button,
@@ -15,10 +15,10 @@ import {
   useScrollTrigger,
   Tab,
   Tabs,
-} from "@material-ui/core"
-import { makeStyles, useTheme } from "@material-ui/styles"
-import logo from "../../assets/logo.svg"
-import MenuIcon from "@material-ui/icons/Menu"
+} from '@material-ui/core'
+import { makeStyles, useTheme } from '@material-ui/styles'
+import logo from '../../assets/logo.svg'
+import MenuIcon from '@material-ui/icons/Menu'
 
 function ElevationScroll(props) {
   const { children } = props
@@ -35,75 +35,75 @@ function ElevationScroll(props) {
 const useStyles = makeStyles((theme) => ({
   toolbarMargin: {
     ...theme.mixins.toolbar,
-    marginBottom: "3em",
-    [theme.breakpoints.down("md")]: {
-      marginBottom: "2.5em",
+    marginBottom: '3em',
+    [theme.breakpoints.down('md')]: {
+      marginBottom: '2.5em',
     },
-    [theme.breakpoints.down("xs")]: {
-      marginBottom: "1.25em",
+    [theme.breakpoints.down('xs')]: {
+      marginBottom: '1.25em',
     },
   },
   logoContainer: {
     padding: 0,
-    "&:hover": {
-      backgroundColor: "transparent",
+    '&:hover': {
+      backgroundColor: 'transparent',
     },
   },
   logo: {
-    height: "8em",
-    [theme.breakpoints.down("md")]: {
-      height: "7rem",
+    height: '8em',
+    [theme.breakpoints.down('md')]: {
+      height: '7rem',
     },
-    [theme.breakpoints.down("xs")]: {
-      height: "5rem",
+    [theme.breakpoints.down('xs')]: {
+      height: '5rem',
     },
   },
   tabContainer: {
-    marginLeft: "auto",
+    marginLeft: 'auto',
   },
   tab: {
     ...theme.typography.tab,
     minWidth: 10,
-    marginLeft: "25px",
+    marginLeft: '25px',
   },
   button: {
     ...theme.typography.estimate,
-    borderRadius: "50px",
-    marginLeft: "50px",
-    marginRight: "20px",
-    height: "45px",
-    "&:hover": {
+    borderRadius: '50px',
+    marginLeft: '50px',
+    marginRight: '20px',
+    height: '45px',
+    '&:hover': {
       backgroundColor: theme.palette.secondary.light,
     },
   },
   menu: {
     backgroundColor: theme.palette.common.blue,
-    color: "white",
+    color: 'white',
   },
   meuItem: {
     ...theme.typography.tab,
     opacity: 0.7,
-    padding: "4px 0",
-    "&:hover": {
+    padding: '4px 0',
+    '&:hover': {
       opacity: 0,
     },
   },
   drawerIconContainer: {
-    marginLeft: "auto",
-    "&:hover": {
-      backgroundColor: "transparent",
+    marginLeft: 'auto',
+    '&:hover': {
+      backgroundColor: 'transparent',
     },
   },
   drawerIcon: {
-    width: "50px",
-    height: "50px",
+    width: '50px',
+    height: '50px',
   },
   drawer: {
     backgroundColor: theme.palette.common.blue,
   },
   drawerItem: {
     ...theme.typography.tab,
-    color: "white",
+    color: 'white',
   },
   drawerItemEstimate: {
     backgroundColor: theme.palette.common.orange,
@@ -116,7 +116,7 @@ const useStyles = makeStyles((theme) => ({
 const Header = () => {
   const classes = useStyles()
   const theme = useTheme()
-  const matches = useMediaQuery(theme.breakpoints.down("md"))
+  const matches = useMediaQuery(theme.breakpoints.down('md'))
   const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent)
   const [openDrawer, setOpenDrawer] = useState(false)
   const [value, setValue] = useState(0)
@@ -143,51 +143,51 @@ const Header = () => {
     setSelectedIndex(i)
   }
   const menuOptions = [
-    { name: "Services", link: "/services" },
-    { name: "Custom Software Development", link: "/customsoftware" },
-    { name: "iOS/Android App Development", link: "/mobileapps" },
-    { name: "Website Software Development", link: "/websites" },
+    { name: 'Services', link: '/services' },
+    { name: 'Custom Software Development', link: '/customsoftware' },
+    { name: 'iOS/Android App Development', link: '/mobileapps' },
+    { name: 'Website Software Development', link: '/websites' },
   ]
 
   useEffect(() => {
     switch (window.location.pathname) {
-      case "/":
+      case '/':
         if (value !== 0) setValue(0)
         break
-      case "/services":
+      case '/services':
         if (value !== 1) {
           setValue(1)
           setSelectedIndex(0)
         }
         break
-      case "/customsoftware":
+      case '/customsoftware':
         if (value !== 1) {
           setValue(1)
           setSelectedIndex(1)
         }
         break
-      case "/mobileapps":
+      case '/mobileapps':
         if (value !== 1) {
           setValue(1)
           setSelectedIndex(2)
         }
         break
-      case "/websites":
+      case '/websites':
         if (value !== 1) {
           setValue(1)
           setSelectedIndex(3)
         }
         break
-      case "/revolutions":
+      case '/revolutions':
         if (value !== 2) setValue(2)
         break
-      case "/aboutus":
+      case '/aboutus':
         if (value !== 3) setValue(3)
         break
-      case "/contact":
+      case '/contact':
         if (value !== 4) setValue(4)
         break
-      case "/estimate":
+      case '/estimate':
         if (value !== 5) setValue(5)
         break
       default:
@@ -197,24 +197,24 @@ const Header = () => {
 
   const headerMenu = [
     {
-      name: "Home",
-      to: "/",
+      name: 'Home',
+      to: '/',
     },
     {
-      name: "Services",
-      to: "/services",
+      name: 'Services',
+      to: '/services',
     },
     {
-      name: "The Revolution",
-      to: "/revolutions",
+      name: 'The Revolution',
+      to: '/revolutions',
     },
     {
-      name: "About Us",
-      to: "/aboutus",
+      name: 'About Us',
+      to: '/aboutus',
     },
     {
-      name: "Contact Us",
-      to: "/contact",
+      name: 'Contact Us',
+      to: '/contact',
     },
   ]
   const tabs = (
@@ -226,15 +226,15 @@ const Header = () => {
         // indicatorColor="primary"
       >
         {headerMenu.map((menu, i) => {
-          if (menu.to === "/services")
+          if (menu.to === '/services')
             return (
               <Tab
-                aria-owns={anchorEl ? "simple-menu" : undefined}
-                aria-haspopup={anchorEl ? "true" : undefined}
-                label="Services"
+                aria-owns={anchorEl ? 'simple-menu' : undefined}
+                aria-haspopup={anchorEl ? 'true' : undefined}
+                label='Services'
                 component={Link}
                 onMouseOver={(e) => handleClick(e)}
-                to="/services"
+                to='/services'
                 className={classes.tab}
                 key={i}
               />
@@ -252,16 +252,16 @@ const Header = () => {
       </Tabs>
       <Button
         component={Link}
-        to="/estimate"
-        variant="contained"
-        color="secondary"
+        to='/estimate'
+        variant='contained'
+        color='secondary'
         className={classes.button}
-        conClick={() => setValue(5)}
+        onClick={() => setValue(5)}
       >
         Free Estimate www
       </Button>
       <Menu
-        id="simple-menu"
+        id='simple-menu'
         classes={{ paper: classes.menu }}
         anchorEl={anchorEl}
         open={openMenu}
@@ -316,7 +316,7 @@ const Header = () => {
           ))}
           <ListItem
             component={Link}
-            to="/estimate"
+            to='/estimate'
             divider
             button
             onClick={() => setOpenDrawer(false)}
@@ -338,16 +338,16 @@ const Header = () => {
   return (
     <>
       <ElevationScroll>
-        <AppBar position="fixed" className={classes.appBar}>
+        <AppBar position='fixed' className={classes.appBar}>
           <Toolbar disableGutters>
             <Button
               disableRipple
               component={Link}
-              to="/"
+              to='/'
               className={classes.logoContainer}
               onClick={() => setValue(0)}
             >
-              <img src={logo} alt="logo" className={classes.logo} />
+              <img src={logo} alt='logo' className={classes.logo} />
             </Button>
             {matches ? drawer : tabs}
           </Toolbar>

@@ -9,6 +9,7 @@ import CustomSoftware from './CustomSoftware'
 import MobileApps from './MobileApps'
 import Websites from './Websites'
 import Revolution from './Revolution'
+import About from './About'
 function App() {
   return (
     <MuiThemeProvider theme={theme}>
@@ -22,7 +23,7 @@ function App() {
           <Route exact path='/mobileapps' component={MobileApps} />
           <Route exact path='/websites' component={Websites} />
           <Route exact path='/revolutions' component={Revolution} />
-          <Route exact path='/aboutus' component={() => <h2>aboutus</h2>} />
+          <Route exact path='/aboutus' component={About} />
           <Route exact path='/contact' component={() => <h2>contact</h2>} />
           <Route exact path='/estimate' component={() => <h2>estimate</h2>} />
         </Switch>

@@ -181,7 +181,7 @@ export default function About(props) {
           </Typography>
         </Grid>
         <Grid item>
-          <Avatar alt='founder' src={profile} className={classes.avatar} />
+          <Avatar alt='founder' className={classes.avatar} />
         </Grid>
       </Grid>
       <Grid item>

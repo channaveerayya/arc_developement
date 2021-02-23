@@ -20,6 +20,7 @@ export default createMuiTheme({
       fontFamily: 'Raleway',
       textTransform: 'none',
       fontWeight: 700,
+      color: 'white',
       fontSize: '1rem',
     },
     estimate: {
@@ -53,27 +54,54 @@ export default createMuiTheme({
     },
     subtitle1: {
       fontSize: '1.25rem',
-      color: arcGrey,
       fontWeight: 300,
+      color: arcGrey,
     },
     subtitle2: {
-      fontSize: '1.25rem',
       color: 'white',
       fontWeight: 300,
+      fontSize: '1.25rem',
     },
     body1: {
       fontSize: '1.25rem',
       color: arcGrey,
       fontWeight: 300,
     },
-    learnBtn: {
+    caption: {
+      fontSize: '1rem',
+      fontWeight: 300,
+      color: arcGrey,
+    },
+    learnButton: {
       borderColor: arcBlue,
-      color: arcBlue,
       borderWidth: 2,
       textTransform: 'none',
+      color: arcBlue,
       borderRadius: 50,
       fontFamily: 'Roboto',
       fontWeight: 'bold',
+    },
+  },
+  overrides: {
+    MuiInputLabel: {
+      root: {
+        color: arcBlue,
+        fontSize: '1rem',
+      },
+    },
+    MuiInput: {
+      root: {
+        color: arcGrey,
+        fontWeight: 300,
+      },
+      underline: {
+        '&:before': {
+          borderBottom: `2px solid ${arcBlue}`,
+        },
+        '&:hover:not($disabled):not($focused):not($error):before': {
+          borderBottom: `2px solid ${arcBlue}`,
+        },
+      },
     },
   },
 })

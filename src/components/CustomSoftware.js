@@ -16,7 +16,7 @@ import cash from '../assets/cash.svg'
 import stopwatch from '../assets/stopwatch.svg'
 import roots from '../assets/root.svg'
 import documentsAnimation from '../animations/documentsAnimation/data'
-import scaleAnimation from '../animations/scaleAnimation/data'
+import scaleAnimation from '../animations/scaleAnimation/data.json'
 import automationAnimation from '../animations/automationAnimation/data.json'
 import uxAnimation from '../animations/uxAnimation/data'
 import CallToAction from './ui/CallToAction'
@@ -33,20 +33,21 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('sm')]: {
       paddingLeft: '1.5em',
       paddingRight: '1.5em',
-      paddingTop: '1em',
     },
   },
   itemContainer: {
     maxWidth: '40em',
   },
 }))
-const CustomSoftware = () => {
+
+export default function CustomSoftware(props) {
   const classes = useStyles()
   const theme = useTheme()
   const matchesMD = useMediaQuery(theme.breakpoints.down('md'))
   const matchesSM = useMediaQuery(theme.breakpoints.down('sm'))
   const matchesXS = useMediaQuery(theme.breakpoints.down('xs'))
-  const documentOptions = {
+
+  const documentsOptions = {
     loop: true,
     autoplay: true,
     animationData: documentsAnimation,
@@ -70,7 +71,8 @@ const CustomSoftware = () => {
       preserveAspectRatio: 'xMidYMid slice',
     },
   }
-  const UXOptions = {
+
+  const uxOptions = {
     loop: true,
     autoplay: true,
     animationData: uxAnimation,
@@ -78,9 +80,11 @@ const CustomSoftware = () => {
       preserveAspectRatio: 'xMidYMid slice',
     },
   }
+
   return (
     <Grid container direction='column'>
       <Grid
+        item
         container
         direction='row'
         justify={matchesMD ? 'center' : undefined}
@@ -97,6 +101,7 @@ const CustomSoftware = () => {
               style={{ backgroundColor: 'transparent' }}
               component={Link}
               to='/services'
+              onClick={() => props.setSelectedIndex(0)}
             >
               <img src={backArrow} alt='Back to Services Page' />
             </IconButton>
@@ -110,17 +115,17 @@ const CustomSoftware = () => {
           </Grid>
           <Grid item>
             <Typography
+              align={matchesMD ? 'center' : undefined}
               variant='body1'
               paragraph
-              align={matchesMD ? 'center' : undefined}
             >
               Whether we’re replacing old software or inventing new solutions,
               Arc Development is here to help your business tackle technology.
             </Typography>
             <Typography
+              align={matchesMD ? 'center' : undefined}
               variant='body1'
               paragraph
-              align={matchesMD ? 'center' : undefined}
             >
               Using regular commercial software leaves you with a lot of stuff
               you don’t need, without some of the stuff you do need, and
@@ -129,9 +134,9 @@ const CustomSoftware = () => {
               savings from increased efficiency.
             </Typography>
             <Typography
+              align={matchesMD ? 'center' : undefined}
               variant='body1'
               paragraph
-              align={matchesMD ? 'center' : undefined}
             >
               Our custom solutions are designed from the ground up with your
               needs, wants, and goals at the core. This collaborative process
@@ -140,9 +145,9 @@ const CustomSoftware = () => {
               options.
             </Typography>
             <Typography
+              align={matchesMD ? 'center' : undefined}
               variant='body1'
               paragraph
-              align={matchesMD ? 'center' : undefined}
             >
               We create exactly what you what, exactly how you want it.
             </Typography>
@@ -154,8 +159,12 @@ const CustomSoftware = () => {
               style={{ backgroundColor: 'transparent' }}
               component={Link}
               to='/mobileapps'
+              onClick={() => props.setSelectedIndex(2)}
             >
-              <img src={forwardArrow} alt='forwardArrow Ios' />
+              <img
+                src={forwardArrow}
+                alt='Forward to iOS/Android App Development Page'
+              />
             </IconButton>
           </Grid>
         </Hidden>
@@ -165,8 +174,8 @@ const CustomSoftware = () => {
         container
         direction='row'
         justify='center'
-        className={classes.rowContainer}
         style={{ marginTop: '15em', marginBottom: '20em' }}
+        className={classes.rowContainer}
       >
         <Grid
           item
@@ -223,7 +232,7 @@ const CustomSoftware = () => {
         container
         alignItems={matchesMD ? 'center' : undefined}
         direction={matchesMD ? 'column' : 'row'}
-        justify='space-around'
+        justify='space-between'
         className={classes.rowContainer}
       >
         <Grid
@@ -248,8 +257,6 @@ const CustomSoftware = () => {
               >
                 Reduce Errors. Reduce Waste. Reduce Costs.
               </Typography>
-            </Grid>
-            <Grid item>
               <Typography
                 variant='body1'
                 paragraph
@@ -259,8 +266,6 @@ const CustomSoftware = () => {
                 distribution of paper. On top of the massive environmental
                 impact this has, it causes harm to your bottom line as well.
               </Typography>
-            </Grid>
-            <Grid item>
               <Typography
                 variant='body1'
                 paragraph
@@ -274,7 +279,7 @@ const CustomSoftware = () => {
           </Grid>
           <Grid item md>
             <Lottie
-              options={documentOptions}
+              options={documentsOptions}
               style={{ maxHeight: 275, maxWidth: 275, minHeight: 250 }}
             />
           </Grid>
@@ -315,23 +320,22 @@ const CustomSoftware = () => {
       <Grid
         item
         container
-        alignItems={matchesMD ? 'center' : undefined}
-        direction={matchesMD ? 'column' : 'row'}
-        className={classes.rowContainer}
+        direction='row'
         style={{ marginTop: '20em', marginBottom: '20em' }}
+        className={classes.rowContainer}
       >
         <Grid item container direction='column' alignItems='center'>
           <Grid item>
             <img
               src={roots}
-              alt='roots'
+              alt='tree with roots extending out'
               height={matchesSM ? '300em' : '450em'}
               width={matchesSM ? '300em' : '450em'}
             />
           </Grid>
           <Grid item className={classes.itemContainer}>
             <Typography variant='h4' align='center' gutterBottom>
-              Root-cause Analysis
+              Root-Cause Analysis
             </Typography>
             <Typography variant='body1' align='center' paragraph>
               Many problems are merely symptoms of larger, underlying issues.
@@ -349,7 +353,7 @@ const CustomSoftware = () => {
         container
         alignItems={matchesMD ? 'center' : undefined}
         direction={matchesMD ? 'column' : 'row'}
-        justify='space-around'
+        justify='space-between'
         style={{ marginBottom: '20em' }}
         className={classes.rowContainer}
       >
@@ -375,8 +379,6 @@ const CustomSoftware = () => {
               >
                 Why waste time when you don’t have to?
               </Typography>
-            </Grid>
-            <Grid item>
               <Typography
                 variant='body1'
                 paragraph
@@ -385,8 +387,6 @@ const CustomSoftware = () => {
                 We can help you identify processes with time or event based
                 actions which can now easily be automated.
               </Typography>
-            </Grid>
-            <Grid item>
               <Typography
                 variant='body1'
                 paragraph
@@ -413,7 +413,7 @@ const CustomSoftware = () => {
         >
           <Grid item md>
             <Lottie
-              options={UXOptions}
+              options={uxOptions}
               style={{ maxHeight: 310, maxWidth: 155 }}
             />
           </Grid>
@@ -453,10 +453,8 @@ const CustomSoftware = () => {
         </Grid>
       </Grid>
       <Grid item>
-        <CallToAction />
+        <CallToAction setValue={props.setValue} />
       </Grid>
     </Grid>
   )
 }
-
-export default CustomSoftware

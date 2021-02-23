@@ -1,15 +1,21 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import { Button, Grid, Typography, useMediaQuery } from '@material-ui/core'
+import Grid from '@material-ui/core/Grid'
+import Typography from '@material-ui/core/Typography'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
-import ButtonArrow from '../ui/ButtonArrow'
+import { Link } from 'react-router-dom'
+import Button from '@material-ui/core/Button'
+import ButtonArrow from './ButtonArrow'
+import useMediaQuery from '@material-ui/core/useMediaQuery'
+
 import background from '../../assets/background.jpg'
 import mobileBackground from '../../assets/mobileBackground.jpg'
+
 const useStyles = makeStyles((theme) => ({
-  learnBtn: {
-    ...theme.typography.learnBtn,
+  learnButton: {
+    ...theme.typography.learnButton,
     fontSize: '0.7rem',
     height: 35,
+    padding: 5,
     [theme.breakpoints.down('sm')]: {
       marginBottom: '2em',
     },
@@ -18,8 +24,8 @@ const useStyles = makeStyles((theme) => ({
     backgroundImage: `url(${background})`,
     backgroundPosition: 'center',
     backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
     backgroundAttachment: 'fixed',
+    backgroundRepeat: 'no-repeat',
     height: '60em',
     width: '100%',
     [theme.breakpoints.down('md')]: {
@@ -27,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
       backgroundAttachment: 'inherit',
     },
   },
-  estimate: {
+  estimateButton: {
     ...theme.typography.estimate,
     borderRadius: 50,
     height: 80,
@@ -36,17 +42,21 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '1.5rem',
     marginRight: '5em',
     marginLeft: '2em',
+    '&:hover': {
+      backgroundColor: theme.palette.secondary.light,
+    },
     [theme.breakpoints.down('sm')]: {
-      marginRight: 0,
       marginLeft: 0,
+      marginRight: 0,
     },
   },
 }))
 
-const CallToAction = () => {
-  const classes = useStyles(),
-    theme = useTheme(),
-    matchesSM = useMediaQuery(theme.breakpoints.down('sm'))
+export default function CallToAction(props) {
+  const classes = useStyles()
+  const theme = useTheme()
+  const matchesSM = useMediaQuery(theme.breakpoints.down('sm'))
+
   return (
     <Grid
       container
@@ -65,20 +75,22 @@ const CallToAction = () => {
         <Grid container direction='column'>
           <Grid item>
             <Typography variant='h2'>
-              Simple Software,
-              <br /> Revolutionary Results.
+              Simple Software.
+              <br />
+              Revolutionary Results.
             </Typography>
             <Typography variant='subtitle2' style={{ fontSize: '1.5rem' }}>
-              take advantage of the 21st Century
+              Take advantage of the 21st Century.
             </Typography>
-            <Grid container item justify={matchesSM ? 'center' : undefined}>
+            <Grid container justify={matchesSM ? 'center' : undefined} item>
               <Button
                 component={Link}
                 to='/revolution'
                 variant='outlined'
-                className={classes.learnBtn}
+                className={classes.learnButton}
+                onClick={() => props.setValue(2)}
               >
-                <span style={{ marginRight: 5 }}>Learn More </span>
+                <span style={{ marginRight: 5 }}>Learn More</span>
                 <ButtonArrow
                   width={10}
                   height={10}
@@ -94,7 +106,8 @@ const CallToAction = () => {
           component={Link}
           to='/estimate'
           variant='contained'
-          className={classes.estimate}
+          className={classes.estimateButton}
+          onClick={() => props.setValue(5)}
         >
           Free Estimate
         </Button>
@@ -102,5 +115,3 @@ const CallToAction = () => {
     </Grid>
   )
 }
-
-export default CallToAction

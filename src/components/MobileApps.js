@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-function MobileApps() {
+export default function MobileApps(props) {
   const classes = useStyles()
   const theme = useTheme()
   const matchesMD = useMediaQuery(theme.breakpoints.down('md'))
@@ -69,6 +69,7 @@ function MobileApps() {
               style={{ backgroundColor: 'transparent' }}
               component={Link}
               to='/customsoftware'
+              onClick={() => props.setSelectedIndex(1)}
             >
               <img
                 src={backArrow}
@@ -117,6 +118,7 @@ function MobileApps() {
               style={{ backgroundColor: 'transparent' }}
               component={Link}
               to='/websites'
+              onClick={() => props.setSelectedIndex(3)}
             >
               <img
                 src={forwardArrow}
@@ -253,10 +255,8 @@ function MobileApps() {
         </Grid>
       </Grid>
       <Grid item>
-        <CallToAction />
+        <CallToAction setValue={props.setValue} />
       </Grid>
     </Grid>
   )
 }
-
-export default MobileApps
